@@ -30,13 +30,15 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 
 
+## Method Overview
+
+<img src="https://github.com/Linwei-Chen/LIS/blob/main/static/overview.png" width="512px">
+
 ## Dataset Overview
 
 ![img](https://github.com/Linwei-Chen/LIS/blob/main/static/dataset.png)
 
-## Method Overview
 
-![img](https://github.com/Linwei-Chen/LIS/blob/main/static/overview.png)
 
 
 
