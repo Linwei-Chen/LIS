@@ -36,7 +36,7 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 ## Method Overview
 
-![img](https://github.com/Linwei-Chen/LIS/blob/main/static/overview4.png)
+![img](https://github.com/Linwei-Chen/LIS/blob/main/static/overview.png)
 
 
 
