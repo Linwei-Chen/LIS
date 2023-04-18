@@ -60,11 +60,16 @@ Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/bl
 
 Results are reported on LIS test set.
 
-| Model      | Backbone | Train     | Seg AP | Box AP | Config | CKPT  |
-| ---------- | -------- | --------- | ------ | ------ | ------ | ----- |
-| Mask R-CNN | R50      | COCO      |        |        | config | model |
-| Mask R-CNN | R50      | Syn COCO  |        |        | config | model |
-| Mask R-CNN | R50      | LIS train |        |        | config | model |
+| Model                          | Backbone   | Train set | Seg AP | Box AP | Config | CKPT  |
+| ------------------------------ | ---------- | --------- | ------ | ------ | ------ | ----- |
+| Mask R-CNN                     | R50        | COCO8     | 19.8   | 22.8   | config | model |
+| Mask R-CNN+AWD+SCB+DSL (Ours)  | R50        | Syn COCO8 | 31.8   | 37.6   | config | model |
+| Mask R-CNN                     | ConvNeXt-T | COCO8     | 23.7   | 27.9   | config | model |
+| Mask R-CNN+AWD+SCB+DSL (Ours)  | ConvNeXt-T | Syn COCO8 | 36.8   | 42.7   | config | model |
+| PointRend                      | R50        | COCO8     |        |        | config | model |
+| PointRend+AWD+SCB+DSL (Ours)   | R50        | Syn COCO8 |        |        | config | model |
+| Mask2Former                    | R50        | COCO8     | 21.4   | 22.9   | config | model |
+| Mask2Former+AWD+SCB+DSL (Ours) | R50        | Syn COCO8 | 35.6   | 37.8   | config | model |
 
 For future research, we suggest using COCO as train set and the whole LIS as test set.
 
@@ -79,7 +84,7 @@ Results are reported on normal-light COCO val set.
 
 ## Dataset Download
 
-
+TODO
 
 
 
