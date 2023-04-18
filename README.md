@@ -58,13 +58,6 @@ Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/bl
 
 ### Pretrained Model
 
-Results are reported on COCO val set.
-
-| Model                  | Backbone | Train | Seg AP | Box AP | Config                                                       | CKPT                                                         |
-| ---------------------- | -------- | ----- | ------ | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Mask R-CNN             | R50      | COCO  | 34.4   | 38.0   | [config](https://github.com/open-mmlab/mmdetection/blob/main/configs/mask_rcnn/mask-rcnn_r50-caffe_fpn_1x_coco.py) | [model](https://download.openmmlab.com/mmdetection/v2.0/mask_rcnn/mask_rcnn_r50_caffe_fpn_1x_coco/mask_rcnn_r50_caffe_fpn_1x_coco_bbox_mAP-0.38__segm_mAP-0.344_20200504_231812-0ebd1859.pth) |
-| Mask R-CNN+AWD+SCB+DSL | R50      | COCO  | 36.1   | 39.5   | config                                                       | model                                                        |
-
 Results are reported on LIS test set.
 
 | Model      | Backbone | Train     | Seg AP | Box AP | Config | CKPT  |
@@ -76,6 +69,13 @@ Results are reported on LIS test set.
 For future research, we suggest using COCO as train set and the whole LIS as test set.
 
 
+
+Results are reported on normal-light COCO val set.
+
+| Model                  | Backbone | Train | Seg AP | Box AP | Config                                                       | CKPT                                                         |
+| ---------------------- | -------- | ----- | ------ | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Mask R-CNN             | R50      | COCO  | 34.4   | 38.0   | [config](https://github.com/open-mmlab/mmdetection/blob/main/configs/mask_rcnn/mask-rcnn_r50-caffe_fpn_1x_coco.py) | [model](https://download.openmmlab.com/mmdetection/v2.0/mask_rcnn/mask_rcnn_r50_caffe_fpn_1x_coco/mask_rcnn_r50_caffe_fpn_1x_coco_bbox_mAP-0.38__segm_mAP-0.344_20200504_231812-0ebd1859.pth) |
+| Mask R-CNN+AWD+SCB+DSL | R50      | COCO  | 36.1   | 39.5   | config                                                       | model                                                        |
 
 ## Dataset Download
 
