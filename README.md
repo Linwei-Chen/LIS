@@ -43,19 +43,19 @@ If you use our dataset or code for research, please cite our paper:
 
 ```
 @article{LIS,
-	title={Instance Segmentation in the Dark},
-	author={Chen, Linwei and Fu, Ying and Wei, Kaixuan and Zheng, Dezhi and Heide, Felix},
-	journal={International Journal of Computer Vision},
+title={Instance Segmentation in the Dark},
+author={Chen, Linwei and Fu, Ying and Wei, Kaixuan and Zheng, Dezhi and Heide, Felix},
+journal={International Journal of Computer Vision},
 year={2023}
 }
 ```
 
 ```
 @inproceedings{Hong2021Crafting,
-	title={Crafting Object Detection in Very Low Light},
-  author={Yang Hong, Kaixuan Wei, Linwei Chen, Ying Fu},
-  booktitle={BMVC},
-  year={2021}
+title={Crafting Object Detection in Very Low Light},
+author={Yang Hong, Kaixuan Wei, Linwei Chen, Ying Fu},
+booktitle={BMVC},
+year={2021}
 }
 ```
 
