@@ -17,11 +17,11 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 ## Dataset Overview
 
-![](./static/dataset.pdf)
+![](https://github.com/Linwei-Chen/LIS/static/dataset.pdf)
 
 ## Method Overview
 
-
+![](https://github.com/Linwei-Chen/LIS/static/overview4.pdf)
 
 ## Code Usage
 
