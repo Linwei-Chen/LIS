@@ -1,5 +1,11 @@
 # IJCV2023 Instance Segmentation in the Dark
 
+The implementation  of our IJCV2023 paper "Instance Segmentation in the Dark".
+
+Interested readers are also referred to an insightful [Note](https://zhuanlan.zhihu.com/) about this work in Zhihu.
+
+
+
 **Abstract**
 
 Existing instance segmentation methods are primarily designed for high-visibility inputs, and their performance degrades drastically in extremely low-light environments.
@@ -15,19 +21,44 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 
 
+## ✨Highlight
+
+-  We propose an adaptive weighted downsampling layer, smooth-oriented convolutional block and disturbance suppression learning to address the high-frequency disturbance within deep features that occurred in very low light. Interestingly, they also benefit the normal-lit instance segmentation.
+
+- We exploit the potentials of RAW-input design for low-light instance segmentation and leverage a low-light RAW synthetic pipeline to generate realistic low-light RAW images from existing datasets, which facilitates end-to-end training.
+- We collect a real-world low-light dataset with precise pixel-wise instance-level annotations, namely LIS, which covers more than two thousand scenes and can serve as a benchmark for instance segmentation in the dark. On LIS, our approach outperforms state-of-the-art competitors in terms of both segmentation accuracy and inference speed by a large margin.
+
+
+
 ## Dataset Overview
 
-![img](https://github.com/Linwei-Chen/LIS/blob/main/static/dataset.pdf)
+![img](https://github.com/Linwei-Chen/LIS/blob/main/static/dataset.png)
 
 ## Method Overview
 
-![img](https://github.com/Linwei-Chen/LIS/blob/main/static/overview4.pdf)
+![img](https://github.com/Linwei-Chen/LIS/blob/main/static/overview4.png)
+
+
 
 ## Code Usage
+
+### Installation
 
 Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/get_started.md#installation) for installation and [dataset_prepare.md](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/2_dataset_prepare.md#prepare-datasets) for dataset preparation.
 
 
+
+### Pretrained Model
+
+Results are reported on LIS test.
+
+| Model      | Backbone | Train     | Seg AP | Box AP | Config |
+| ---------- | -------- | --------- | ------ | ------ | ------ |
+| Mask R-CNN | R50      | COCO      |        |        |        |
+| Mask R-CNN | R50      | Syn COCO  |        |        |        |
+| Mask R-CNN | R50      | LIS train |        |        |        |
+
+For future research, we suggest using COCO as train set and the whole LIS as test set.
 
 
 
@@ -39,7 +70,7 @@ Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/bl
 
 ## Citation
 
-If you use our dataset or code for research, please cite our paper:
+If you use our dataset or code for research, please cite our papers:
 
 ```
 @article{LIS,
