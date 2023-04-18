@@ -34,11 +34,15 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 <img src="https://github.com/Linwei-Chen/LIS/blob/main/static/overview.png" width="512px">
 
+The adaptive weighted downsampling (AWD) layer, smooth-oriented convolutional block (SCB), and disturbance suppression loss are designed to reduce the feature disturbance caused by noise, and the low-light RAW synthetic pipeline is employed to facilitate end-to-end training of instance segmentation on RAW images.
+
+
+
 ## Dataset Overview
 
 ![img](https://github.com/Linwei-Chen/LIS/blob/main/static/dataset.png)
 
-
+Four image types (long-exposure normal-light and short-exposure low-light images in both RAW and sRGB formats) are captured for each scene.}
 
 
 
