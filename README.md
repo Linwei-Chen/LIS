@@ -2,7 +2,7 @@
 
 The implementation  of our IJCV2023 paper "Instance Segmentation in the Dark".
 
-Interested readers are also referred to an insightful [Note](https://zhuanlan.zhihu.com/) about this work in Zhihu.
+Interested readers are also referred to an insightful [Note](https://zhuanlan.zhihu.com/) about this work in Zhihu. (TODO) 
 
 
 
@@ -49,6 +49,8 @@ Four image types (long-exposure normal-light and short-exposure low-light images
 ## Code Usage
 
 ### Installation
+
+Our code is based on MMSegmentation.
 
 Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/get_started.md#installation) for installation and [dataset_prepare.md](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/2_dataset_prepare.md#prepare-datasets) for dataset preparation.
 
