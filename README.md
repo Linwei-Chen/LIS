@@ -92,7 +92,9 @@ Results are reported on normal-light COCO val set.
 
 TODO
 
-Download images including RAW-dark, RAW-normal, RGB-dark, and RGB-normal from link.
+Download images including RAW-dark, RAW-normal, RGB-dark, RGB-normal, annotations from [Baidu Drive](https://pan.baidu.com/s/1XSV2CQZ7SWOvKvSgI7pH5Q).
+
+extraction code: IJCV
 
 Download images including annotations from link.
 
