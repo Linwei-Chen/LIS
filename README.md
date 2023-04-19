@@ -60,16 +60,16 @@ Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/bl
 
 Results are reported on LIS test set.
 
-| Model              | Backbone       | Train set | Seg AP | Box AP | Config | CKPT  |
-| ------------------ | -------------- | --------- | ------ | ------ | ------ | ----- |
-| Mask R-CNN         | R50-FPN        | COCO      | 19.8   | 22.8   | config | model |
-| Mask R-CNN (Ours)  | R50-FPN        | Syn COCO  | 31.8   | 37.6   | config | model |
-| Mask R-CNN         | ConvNeXt-T-FPN | COCO      | 23.7   | 27.9   | config | model |
-| Mask R-CNN (Ours)  | ConvNeXt-T-FPN | Syn COCO  | 36.8   | 42.7   | config | model |
-| PointRend          | R50-FPN        | COCO      | 20.6   | 23.5   | config | model |
-| PointRend (Ours)   | R50-FPN        | Syn COCO  | 32.8   | 37.1   | config | model |
-| Mask2Former        | R50            | COCO      | 21.4   | 22.9   | config | model |
-| Mask2Former (Ours) | R50            | Syn COCO  | 35.6   | 37.8   | config | model |
+| Model              | Backbone       | Train set | Seg AP   | Box AP   | Config | CKPT  |
+| ------------------ | -------------- | --------- | -------- | -------- | ------ | ----- |
+| Mask R-CNN         | R50-FPN        | COCO      | 19.8     | 22.8     | config | model |
+| Mask R-CNN (Ours)  | R50-FPN        | Syn COCO  | **31.8** | **37.6** | config | model |
+| Mask R-CNN         | ConvNeXt-T-FPN | COCO      | 23.7     | 27.9     | config | model |
+| Mask R-CNN (Ours)  | ConvNeXt-T-FPN | Syn COCO  | **36.8** | **42.7** | config | model |
+| PointRend          | R50-FPN        | COCO      | 20.6     | 23.5     | config | model |
+| PointRend (Ours)   | R50-FPN        | Syn COCO  | **32.8** | **37.1** | config | model |
+| Mask2Former        | R50            | COCO      | 21.4     | 22.9     | config | model |
+| Mask2Former (Ours) | R50            | Syn COCO  | **35.6** | **37.8** | config | model |
 
 We do not tune hyperparameters like loss weights. Further adjusting the hyperparameters should lead to improvement.
 
@@ -90,32 +90,43 @@ Results are reported on normal-light COCO val set.
 
 ## Dataset Download
 
-TODO
-
 Download images including RAW-dark, RAW-normal, RGB-dark, RGB-normal, annotations from [Baidu Drive](https://pan.baidu.com/s/1XSV2CQZ7SWOvKvSgI7pH5Q).
 
 extraction code: IJCV
 
-Download images including annotations from link.
+LIS dataset should follow folder structure bellow:
 
 ```
-mmsegmentation
-├── mmseg
-├── tools
-├── configs
-├── data
-│   ├── cityscapes
-│   │   ├── leftImg8bit
-
--LIS
---RAW-dark
----JPEGImages
---RAW-normal
---RGB-dark
---RGB-normal
+├── LIS
+│   ├── RGB-normal
+│   │   ├── JPEGImages
+│   │   │   ├──1.png
+│   │   │   ├──3.png
+│   │   │   ├──5.png
+│   │   │   ├──...
+│   ├── RGB-dark
+│   │   ├── JPEGImages
+│   │   │   ├──2.JPG
+│   │   │   ├──4.JPG
+│   │   │   ├──6.JPG
+│   │   │   ├──...
+│   ├── RAW-normal
+│   │   ├── JPEGImages
+│   │   │   ├──...
+│   ├── RAW-dark
+│   │   ├── JPEGImages
+│   │   │   ├──...
+│   ├── annotations
+│   │   ├──lis_coco_JPG_train+1.json # w/ '+1' indicates labels for dark
+│   │   ├──lis_coco_JPG_test+1.json
+│   │   ├──lis_coco_JPG_traintest+1.json  images
+│   │   ├──lis_coco_png_train.json # w/o '+1' indicates labels for dark images
+│   │   ├──lis_coco_png_test.json
+│   │   ├──lis_coco_png_traintest.json
+│   │   ├──lis_coco_png_train+1.json
+│   │   ├──lis_coco_png_test+1.json
+│   │   ├──lis_coco_png_traintest+1.json
 ```
-
-
 
 
 
