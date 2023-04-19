@@ -21,7 +21,7 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 
 
-## ✨Highlight
+## Highlight✨
 
 -  We propose an adaptive weighted downsampling layer, smooth-oriented convolutional block and disturbance suppression learning to address the high-frequency disturbance within deep features that occurred in very low light. Interestingly, they also benefit the normal-lit instance segmentation.
 
@@ -30,7 +30,7 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 
 
-## Method Overview
+## Method Overview 
 
 <img src="https://github.com/Linwei-Chen/LIS/blob/main/static/overview.png" width="512px">
 
@@ -38,7 +38,7 @@ The adaptive weighted downsampling (AWD) layer, smooth-oriented convolutional bl
 
 
 
-## Dataset Overview
+## Dataset Overview 
 
 ![img](https://github.com/Linwei-Chen/LIS/blob/main/static/dataset.png)
 
@@ -60,18 +60,22 @@ Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/bl
 
 Results are reported on LIS test set.
 
-| Model                          | Backbone   | Train set | Seg AP | Box AP | Config | CKPT  |
-| ------------------------------ | ---------- | --------- | ------ | ------ | ------ | ----- |
-| Mask R-CNN                     | R50        | COCO8     | 19.8   | 22.8   | config | model |
-| Mask R-CNN+AWD+SCB+DSL (Ours)  | R50        | Syn COCO8 | 31.8   | 37.6   | config | model |
-| Mask R-CNN                     | ConvNeXt-T | COCO8     | 23.7   | 27.9   | config | model |
-| Mask R-CNN+AWD+SCB+DSL (Ours)  | ConvNeXt-T | Syn COCO8 | 36.8   | 42.7   | config | model |
-| PointRend                      | R50        | COCO8     |        |        | config | model |
-| PointRend+AWD+SCB+DSL (Ours)   | R50        | Syn COCO8 |        |        | config | model |
-| Mask2Former                    | R50        | COCO8     | 21.4   | 22.9   | config | model |
-| Mask2Former+AWD+SCB+DSL (Ours) | R50        | Syn COCO8 | 35.6   | 37.8   | config | model |
+| Model              | Backbone   | Train set | Seg AP | Box AP | Config | CKPT  |
+| ------------------ | ---------- | --------- | ------ | ------ | ------ | ----- |
+| Mask R-CNN         | R50        | COCO      | 19.8   | 22.8   | config | model |
+| Mask R-CNN (Ours)  | R50        | Syn COCO  | 31.8   | 37.6   | config | model |
+| Mask R-CNN         | ConvNeXt-T | COCO      | 23.7   | 27.9   | config | model |
+| Mask R-CNN (Ours)  | ConvNeXt-T | Syn COCO  | 36.8   | 42.7   | config | model |
+| PointRend          | R50        | COCO      |        |        | config | model |
+| PointRend (Ours)   | R50        | Syn COCO  |        |        | config | model |
+| Mask2Former        | R50        | COCO      | 21.4   | 22.9   | config | model |
+| Mask2Former (Ours) | R50        | Syn COCO  | 35.6   | 37.8   | config | model |
+
+We do not tune hyperparameters like loss weights. Further adjusting the hyperparameters should lead to improvement.
 
 For future research, we suggest using COCO as train set and the whole LIS as test set.
+
+
 
 
 
@@ -81,6 +85,8 @@ Results are reported on normal-light COCO val set.
 | ---------------------- | -------- | ----- | ------ | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Mask R-CNN             | R50      | COCO  | 34.4   | 38.0   | [config](https://github.com/open-mmlab/mmdetection/blob/main/configs/mask_rcnn/mask-rcnn_r50-caffe_fpn_1x_coco.py) | [model](https://download.openmmlab.com/mmdetection/v2.0/mask_rcnn/mask_rcnn_r50_caffe_fpn_1x_coco/mask_rcnn_r50_caffe_fpn_1x_coco_bbox_mAP-0.38__segm_mAP-0.344_20200504_231812-0ebd1859.pth) |
 | Mask R-CNN+AWD+SCB+DSL | R50      | COCO  | 36.1   | 39.5   | config                                                       | model                                                        |
+
+
 
 ## Dataset Download
 
