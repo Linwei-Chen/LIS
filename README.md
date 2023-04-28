@@ -1,6 +1,6 @@
 # IJCV2023 Instance Segmentation in the Dark
 
-$Linwei~Chen^{1,2}$, $Ying~Fu^{2}$, $Kaixuan~Wei^{2,3,4}$, $Dezhi~Zheng^{1}$, $Felix~Heide^{3,5}$
+$Linwei~Chen^{1,2}, Ying~Fu^{2}, Kaixuan~Wei^{2,3,4}, Dezhi~Zheng^{1}, Felix~Heide^{3,5}$
 
 $1$ Advanced Research Institute of Multidisciplinary Science, Beijing Institute of Technology, Beijing, China
 
