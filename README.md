@@ -1,5 +1,15 @@
 # IJCV2023 Instance Segmentation in the Dark
 
+Linwei Chen$^{1,2}$, Ying Fu$^{2}$, Kaixuan Wei$^{2,3,4}$, Dezhi Zheng$^{1}$, Felix Heide$^{3,5}$
+
+$1$ Advanced Research Institute of Multidisciplinary Science, Beijing Institute of Technology, Beijing, China
+$2$ School of Computer Science and Technology, Beijing Institute of Technology, Beijing, China
+$3$ Department of Computer Science, Princeton University, Princeton, New Jersey, USA
+$4$ Department of Electrical and Computer Engineering, McGill University, Quebec, Canada
+$5$ Algolux, Rue Richardson, Montreal, Canada
+
+
+
 The implementation  of our IJCV 2023 paper "[Instance Segmentation in the Dark](https://arxiv.org/abs/2304.14298)".
 
 Interested readers are also referred to an insightful [Note](https://zhuanlan.zhihu.com/) about this work in Zhihu. (TODO) 
@@ -73,9 +83,18 @@ Results are reported on LIS test set.
 
 We do not tune hyperparameters like loss weights. Further adjusting the hyperparameters should lead to improvement.
 
-For future research, we suggest using COCO as train set and the whole LIS as test set.
+For future research, we suggest using COCO as train set and the **whole LIS** as test set.
 
-
+| Model              | Backbone   | Train set | Seg AP   | Box AP   |
+| ------------------ | ---------- | --------- | -------- | -------- |
+| Mask R-CNN         | R50        | COCO      | 19.8     | 22.8     |
+| Mask R-CNN (Ours)  | R50        | Syn COCO  | **27.2** | **33.3** |
+| Mask R-CNN         | ConvNeXt-T | COCO      | 19.7     | 24.2     |
+| Mask R-CNN (Ours)  | ConvNeXt-T | Syn COCO  | **32.6** | **39.1** |
+| PointRend          | R50        | COCO      | 17.3     | 20.7     |
+| PointRend (Ours)   | R50        | Syn COCO  | **27.3** | **32.0** |
+| Mask2Former        | R50        | COCO      | 19.0     | 20.7     |
+| Mask2Former (Ours) | R50        | Syn COCO  | **31.1** | **34.1** |
 
 
 
