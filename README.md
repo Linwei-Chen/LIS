@@ -74,16 +74,16 @@ Please refer to [get_started.md](https://github.com/Linwei-Chen/LIS/blob/main/mm
 
 Results are reported on LIS test set.
 
-| Model              | Backbone   | Train set | Seg AP   | Box AP   | Config | CKPT  |
-| ------------------ | ---------- | --------- | -------- | -------- | ------ | ----- |
-| Mask R-CNN         | R50        | COCO      | 19.8     | 22.8     | config | model |
-| Mask R-CNN (Ours)  | R50        | Syn COCO  | **31.8** | **37.6** | config | model |
-| Mask R-CNN         | ConvNeXt-T | COCO      | 23.7     | 27.9     | config | model |
-| Mask R-CNN (Ours)  | ConvNeXt-T | Syn COCO  | **36.8** | **42.7** | config | model |
-| PointRend          | R50        | COCO      | 20.6     | 23.5     | config | model |
-| PointRend (Ours)   | R50        | Syn COCO  | **32.8** | **37.1** | config | model |
-| Mask2Former        | R50        | COCO      | 21.4     | 22.9     | config | model |
-| Mask2Former (Ours) | R50        | Syn COCO  | **35.6** | **37.8** | config | model |
+| Model              | Backbone   | Train set | Seg AP   | Box AP   | Config                                                       | CKPT                                                         |
+| ------------------ | ---------- | --------- | -------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Mask R-CNN         | R50        | COCO      | 19.8     | 22.8     | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/16GdAxJ7GX3I9v8Mtm2xpIQ) (IJCV) |
+| Mask R-CNN (Ours)  | R50        | Syn COCO  | **31.8** | **37.6** | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/16GdAxJ7GX3I9v8Mtm2xpIQ) (IJCV) |
+| Mask R-CNN         | ConvNeXt-T | COCO      | 23.7     | 27.9     | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/1f9Lo8qtRjoLqXyKm-wy2RA) (IJCV) |
+| Mask R-CNN (Ours)  | ConvNeXt-T | Syn COCO  | **36.8** | **42.7** | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/1Ugc3LNHxHmjAJmaLGpouNg) (IJCV) |
+| PointRend          | R50        | COCO      | 20.6     | 23.5     | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/16GdAxJ7GX3I9v8Mtm2xpIQ) (IJCV) |
+| PointRend (Ours)   | R50        | Syn COCO  | **32.8** | **37.1** | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/16GdAxJ7GX3I9v8Mtm2xpIQ) (IJCV) |
+| Mask2Former        | R50        | COCO      | 21.4     | 22.9     | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/16GdAxJ7GX3I9v8Mtm2xpIQ) (IJCV) |
+| Mask2Former (Ours) | R50        | Syn COCO  | **35.6** | **37.8** | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/16GdAxJ7GX3I9v8Mtm2xpIQ) (IJCV) |
 
 We do not tune hyperparameters like loss weights. Further adjusting the hyperparameters should lead to improvement.
 
@@ -107,7 +107,7 @@ Results are reported on normal-light COCO val set.
 | Model                  | Backbone | Train | Seg AP | Box AP | Config                                                       | CKPT                                                         |
 | ---------------------- | -------- | ----- | ------ | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Mask R-CNN             | R50      | COCO  | 34.4   | 38.0   | [config](https://github.com/open-mmlab/mmdetection/blob/main/configs/mask_rcnn/mask-rcnn_r50-caffe_fpn_1x_coco.py) | [model](https://download.openmmlab.com/mmdetection/v2.0/mask_rcnn/mask_rcnn_r50_caffe_fpn_1x_coco/mask_rcnn_r50_caffe_fpn_1x_coco_bbox_mAP-0.38__segm_mAP-0.344_20200504_231812-0ebd1859.pth) |
-| Mask R-CNN+AWD+SCB+DSL | R50      | COCO  | 36.1   | 39.5   | config                                                       | model                                                        |
+| Mask R-CNN+AWD+SCB+DSL | R50      | COCO  | 36.1   | 39.5   | [config](https://github.com/Linwei-Chen/LIS/tree/main/Configs) | [model](https://pan.baidu.com/s/16GdAxJ7GX3I9v8Mtm2xpIQ) (IJCV) |
 
 
 
