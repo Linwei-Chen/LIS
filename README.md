@@ -66,7 +66,7 @@ Four image types (long-exposure normal-light and short-exposure low-light images
 
 Our code is based on MMDetection.
 
-Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/get_started.md#installation) for installation and [dataset_prepare.md](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/2_dataset_prepare.md#prepare-datasets) for dataset preparation.
+Please refer to [get_started.md](https://github.com/Linwei-Chen/LIS/blob/main/mmdetection/docs/get_started.md) for installation and [dataset_prepare.md](https://github.com/Linwei-Chen/LIS/blob/main/mmdetection/docs/1_exist_data_model.md) for dataset preparation.
 
 
 
