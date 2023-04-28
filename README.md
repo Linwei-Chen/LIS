@@ -153,7 +153,7 @@ LIS dataset should follow folder structure bellow:
 
 ## Citation
 
-If you use our dataset or code for research, please cite this paper and our previous work:
+If you use our dataset or code for research, please cite this paper and our [previous work](https://github.com/ying-fu/LODDataset/tree/main):
 
 ```
 @article{LIS,
