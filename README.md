@@ -64,7 +64,7 @@ Four image types (long-exposure normal-light and short-exposure low-light images
 
 ### Installation
 
-Our code is based on MMDetection.
+Our code is based on [MMDetection](https://github.com/open-mmlab/mmdetection).
 
 Please refer to [get_started.md](https://github.com/Linwei-Chen/LIS/blob/main/mmdetection/docs/get_started.md) for installation and [dataset_prepare.md](https://github.com/Linwei-Chen/LIS/blob/main/mmdetection/docs/1_exist_data_model.md) for dataset preparation.
 
@@ -148,6 +148,8 @@ LIS dataset should follow folder structure bellow:
 │   │   ├──lis_coco_png_test+1.json
 │   │   ├──lis_coco_png_traintest+1.json
 ```
+
+Original RAW files are preparing.
 
 
 
