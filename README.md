@@ -6,7 +6,7 @@ Interested readers are also referred to an insightful [Note](https://zhuanlan.zh
 
 **Demo**:
 
-![img](https://github.com/Linwei-Chen/LIS/blob/main/static/segindark-pic-center-1080P.gif)
+![img](https://github.com/Linwei-Chen/LIS/blob/main/static/segindark-pic-center.gif)
 
 **Abstract**
 
