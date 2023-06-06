@@ -1,19 +1,5 @@
 # IJCV2023 Instance Segmentation in the Dark
 
-$Linwei\ Chen^{1,2}$, $Ying\ Fu^{2}$, $Kaixuan\ Wei^{2,3,4}$, $Dezhi\ Zheng^{1}$, $Felix\ Heide^{3,5}$
-
-$1$ Advanced Research Institute of Multidisciplinary Science, Beijing Institute of Technology, Beijing, China
-
-$2$ School of Computer Science and Technology, Beijing Institute of Technology, Beijing, China
-
-$3$ Department of Computer Science, Princeton University, Princeton, New Jersey, USA
-
-$4$ Department of Electrical and Computer Engineering, McGill University, Quebec, Canada
-
-$5$ Algolux, Rue Richardson, Montreal, Canada
-
-
-
 The implementation  of our IJCV 2023 paper "[Instance Segmentation in the Dark](https://arxiv.org/abs/2304.14298)".
 
 Interested readers are also referred to an insightful [Note](https://zhuanlan.zhihu.com/) about this work in Zhihu. (TODO) 
