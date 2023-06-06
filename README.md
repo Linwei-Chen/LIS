@@ -1,12 +1,10 @@
 # IJCV2023 Instance Segmentation in the Dark
 
+![img](https://github.com/Linwei-Chen/LIS/blob/main/static/segindark-pic-center.gif)
+
 The implementation  of our IJCV 2023 paper "[Instance Segmentation in the Dark](https://arxiv.org/abs/2304.14298)".
 
 Interested readers are also referred to an insightful [Note](https://zhuanlan.zhihu.com/) about this work in Zhihu. (TODO) 
-
-**Demo**:
-
-![img](https://github.com/Linwei-Chen/LIS/blob/main/static/segindark-pic-center.gif)
 
 **Abstract**
 
