@@ -4,7 +4,7 @@
 
 The implementation  of our IJCV 2023 paper "[Instance Segmentation in the Dark](https://arxiv.org/abs/2304.14298)".
 
-Interested readers are also referred to an insightful [Note](https://zhuanlan.zhihu.com/) about this work in Zhihu. (TODO) 
+Interested readers are also referred to an insightful [Note](https://zhuanlan.zhihu.com/p/656570195) about this work in Zhihu. (TODO) 
 
 **Abstract**
 
