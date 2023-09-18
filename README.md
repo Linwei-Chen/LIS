@@ -144,11 +144,13 @@ Original RAW files are preparing.
 If you use our dataset or code for research, please cite this paper and our [previous work](https://github.com/ying-fu/LODDataset/tree/main):
 
 ```
-@article{chen2023instance,
+@article{2023lis,
   title={Instance Segmentation in the Dark},
   author={Chen, Linwei and Fu, Ying and Wei, Kaixuan and Zheng, Dezhi and Heide, Felix},
   journal={International Journal of Computer Vision},
-  pages={1--21},
+  volume={131},
+  number={8},
+  pages={2198--2218},
   year={2023},
   publisher={Springer}
 }
