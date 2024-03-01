@@ -137,7 +137,7 @@ LIS dataset should follow folder structure bellow:
 │   │   ├──lis_coco_png_traintest+1.json
 ```
 
-Original RAW files are preparing.
+Original RAW files are avaliable in our [previous work](https://github.com/ying-fu/LODDataset/tree/main).
 
 
 
