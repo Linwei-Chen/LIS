@@ -21,6 +21,24 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 
 
+## News! 📰
+
+### [PBDL2024：Low-light Object Detection and Instance Segmentation Challenge](https://codalab.lisn.upsaclay.fr/competitions/17833)
+
+- The Low-light Object Detection and Instance Segmentation track starts now! We release validation data and training data. Check out [this](https://codalab.lisn.upsaclay.fr/competitions/17833) page and prepare the submission!
+
+### Important dates
+
+- 2024.02.20 Challenge site online
+- 2024.02.21 Release of train data (paired images) and validation data (inputs only)
+- 2024.03.01 Validation server online
+- 2024.04.23 Final test data release (inputs only)
+- 2024.04.30 Test submission deadline
+- 2024.05.05 Fact sheets and code/executable submission deadline
+- 2024.05.10 Preliminary test and rating results release to participants
+
+
+
 ## Highlight✨
 
 -  We propose an adaptive weighted downsampling layer, smooth-oriented convolutional block and disturbance suppression learning to address the high-frequency disturbance within deep features that occurred in very low light. Interestingly, they also benefit the normal-lit instance segmentation.
