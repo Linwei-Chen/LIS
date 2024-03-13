@@ -23,9 +23,11 @@ Without any image preprocessing, we achieve satisfactory performance on instance
 
 ## News! 📰
 
-### [PBDL2024：Low-light Object Detection and Instance Segmentation Challenge](https://codalab.lisn.upsaclay.fr/competitions/17833)
+### [CVPR 2024 challenge：Low-light Object Detection and Instance Segmentation Challenge](https://codalab.lisn.upsaclay.fr/competitions/17833)
 
-- The Low-light Object Detection and Instance Segmentation track starts now! We release validation data and training data. Check out [this](https://codalab.lisn.upsaclay.fr/competitions/17833) page and prepare the submission!
+- 4th International Workshop on Physics-Based Vision Meets Deep Learning (PBDL) in Conjunction with CVPR 2024, Seattle, WA, USA.
+- The Low-light Object Detection and Instance Segmentation track starts now! We release validation data and training data. Check out [this page](https://codalab.lisn.upsaclay.fr/competitions/17833) and prepare the submission!
+- More challenges from the CVPR 2024 workshop PBDL can be found at [this link](https://pbdl-ws.github.io/pbdl2024/challenge/index.html)!
 
 ### Important dates
 
