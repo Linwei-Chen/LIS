@@ -68,6 +68,35 @@ Four image types (long-exposure normal-light and short-exposure low-light images
 
 ## Code Usage
 
+The synthetic pipeline from RGB to RAW in low-light conditions can be found at [here](./mmdetection/mmdet/datasets/pipelines/noisemodel/dark_noising.py).
+
+You can simply use it in mmdetection as follows:
+
+```
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(
+        type='LoadAnnotations',
+        with_bbox=True,
+        with_mask=True,
+        poly2mask=False),
+    dict(type='Resize', img_scale=(600, 400), keep_ratio=True, interpolate_mode='nearest'),
+    dict(type='AddNoisyImg', model='PGRU', camera='CanonEOS5D4',
+         cfa='bayer', use_255=True, pre_adjust_brightness=False, mode='unprocess_addnoise', dark_ratio=(1.0, 1.0), noise_ratio=(10, 100)), # here
+    dict(type='Normalize', **img_norm_cfg),
+    dict(type='Pad', size_divisor=32),
+    dict(type='DefaultFormatBundle'),
+    dict(type='Collect', keys=['img', 'noisy_img', 'gt_bboxes', 'gt_labels', 'gt_masks']),
+    # dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks']),
+]
+```
+
+The AWD can be found at [here](./mmdetection/mmdet/models/backbones/CustomConv.py#L24).
+
+The SConv can be found at [here](./mmdetection/mmdet/models/backbones/CustomConv.py#L342).
+
+The DSL can be found at [here](./mmdetection/mmdet/models/detectors/mask_rcnn.py#L66).
+
 ### Installation
 
 Our code is based on [MMDetection](https://github.com/open-mmlab/mmdetection).
