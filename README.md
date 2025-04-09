@@ -150,6 +150,8 @@ Results are reported on normal-light COCO val set.
 
 Download images including RAW-dark, RAW-normal, RGB-dark, RGB-normal, and annotations from [Baidu Drive](https://pan.baidu.com/s/1iusYmp8iVMWsmCsJo7sWaw) (extraction code: IJCV)  or [Google Drive](https://drive.google.com/drive/folders/1KpC82G_H1CI35lmnB2LYr9aK3FQcahAC?usp=share_link).
 
+[Revised json annotation](https://github.com/Linwei-Chen/LIS/issues/23#issue-2971196455): [Baidu Drive](https://pan.baidu.com/s/1ZDXaeDYHPpcuJ0PR3yviKQ?pwd=IJCV) (extraction code: IJCV) 
+
 If the links are not available, please feel free to contact me.
 
 LIS dataset should follow folder structure bellow:
