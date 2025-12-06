@@ -152,6 +152,12 @@ Download images including RAW-dark, RAW-normal, RGB-dark, RGB-normal, and annota
 
 [Revised json annotation](https://github.com/Linwei-Chen/LIS/issues/23#issue-2971196455): [Baidu Drive](https://pan.baidu.com/s/1ZDXaeDYHPpcuJ0PR3yviKQ?pwd=IJCV) (extraction code: IJCV) 
 
+## Original sensor raw data
+
+The original raw data is much larger. If you need to process the data in a different way, you can download the camera output raw data here: [**all_raw**](https://pan.baidu.com/s/1phBWWedKwcCJONNhny5_8g). (Extraction Code: 2021)
+
+And you can download the camera output original sRGB data here: [**all_rgb**](https://pan.baidu.com/s/1p1lO9KDoNcLih0eIM_kUQQ). (Extraction Code: 2021)
+
 If the links are not available, please feel free to contact me.
 
 LIS dataset should follow folder structure bellow:
