@@ -1,6 +1,6 @@
 _base_ = './mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py'
 
-load_from = '/data3/chenlinwei/.cache/torch/point_rend_r50_caffe_fpn_mstrain_3x_coco_41.0_38.0.pth'
+load_from = 'https://download.openmmlab.com/mmdetection/v2.0/point_rend/point_rend_r50_caffe_fpn_mstrain_3x_coco-64b527bd.pth'
 
 log_level = 'INFO'
 # use caffe img_norm
@@ -43,16 +43,16 @@ coco = dict(
     classes=('bicycle', 'chair', 'dining table',
              'bottle', 'motorcycle', 'car', 'tv', 'bus'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/coco/annotations/instances_train2017.json',
-    img_prefix='/data3/chenlinwei/dataset/coco/train2017/',
+    ann_file='data/coco/annotations/instances_train2017.json',
+    img_prefix='data/coco/train2017/',
     pipeline=train_pipeline)
 
 coco_val = dict(
     classes=('bicycle', 'chair', 'dining table',
              'bottle', 'motorcycle', 'car', 'tv', 'bus'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/coco/annotations/instances_val2017.json',
-    img_prefix='/data3/chenlinwei/dataset/coco/val2017/',
+    ann_file='data/coco/annotations/instances_val2017.json',
+    img_prefix='data/coco/val2017/',
     pipeline=test_pipeline)
 
 
@@ -60,12 +60,12 @@ test_lod_coco = dict(
     classes=('bicycle', 'car', 'motorbike', 'bus',
              'bottle', 'chair', 'diningtable', 'tvmonitor'),
     type='CocoDataset',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_png_test+1.json',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_png_traintest+1.json',
-    ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_JPG_test+1.json',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_JPG_traintest+1.json',
-    # img_prefix='/data3/chenlinwei/dataset/LOD/RAW_Dark/',
-    img_prefix='/data3/chenlinwei/dataset/LOD/RGB_Dark/',
+    # ann_file='data/LIS/lis_coco_png_test+1.json',
+    # ann_file='data/LIS/lis_coco_png_traintest+1.json',
+    ann_file='data/LIS/lis_coco_JPG_test+1.json',
+    # ann_file='data/LIS/lis_coco_JPG_traintest+1.json',
+    # img_prefix='data/LIS/RAW_Dark/',
+    img_prefix='data/LIS/RGB_Dark/',
     pipeline=test_pipeline)
     
 BATCHSIZE = 8

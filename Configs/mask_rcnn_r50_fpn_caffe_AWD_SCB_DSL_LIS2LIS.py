@@ -8,7 +8,7 @@ img_norm_cfg = dict(
 
 train_pipeline = [
     dict(type='LoadImageFromFile', to_float32=False),
-    dict(type='LoadDarkPair', img_dir='/home/ubuntu/2TB/dataset/LOD/RAW_Dark/NoRatio/', ext='png'), # set RAW Dark path
+    dict(type='LoadDarkPair', img_dir='data/LIS/RAW_Dark/NoRatio/', ext='png'), # set RAW Dark path
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
     dict(type='Resize', img_scale=(600, 400), keep_ratio=True, interpolate_mode='nearest'),
     dict(type='RandomFlip', flip_ratio=0.5),
@@ -51,9 +51,9 @@ lod_dark = dict(
              'motorbike', 'car', 'tvmonitor', 'bus'),
     # type='LODDataset', # for png
     type='CocoDataset',
-    # ann_file='/home/ubuntu/2TB/dataset/LOD/lis_coco_png_train+1.json',
-    ann_file='/home/ubuntu/2TB/dataset/LOD/lis_coco_png_train.json',
-    img_prefix='/home/ubuntu/2TB/dataset/LOD/RAW_Normal_Gamma/',
+    # ann_file='data/LIS/lis_coco_png_train+1.json',
+    ann_file='data/LIS/lis_coco_png_train.json',
+    img_prefix='data/LIS/RAW_Normal_Gamma/',
     # img_format='png',
     pipeline=train_pipeline)
 
@@ -68,9 +68,9 @@ test_lod_coco = dict(
     classes=('bicycle', 'chair', 'diningtable', 'bottle',
              'motorbike', 'car', 'tvmonitor', 'bus'),
     type='CocoDataset',
-    ann_file='/home/ubuntu/2TB/dataset/LOD/lis_coco_png_test+1.json',
-    ann_file='/home/ubuntu/2TB/dataset/LOD/lis_coco_png_raw_dark_testonly_challenge.json',
-    img_prefix='/home/ubuntu/2TB/dataset/LOD/RAW_Dark/NoRatio/',
+    ann_file='data/LIS/lis_coco_png_test+1.json',
+    # ann_file='data/LIS/lis_coco_png_raw_dark_testonly_challenge.json',  # 挑战赛版（类别为 COCO 顺序，需配套 classes）
+    img_prefix='data/LIS/RAW_Dark/NoRatio/',
     pipeline=test_pipeline)
 
 BATCHSIZE = 1
@@ -130,8 +130,8 @@ custom_hooks = [dict(type='NumClassCheckHook')]
 
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = '/home/ubuntu/code/LowLight/mmdetexp/fasterRCNN/r50_fpn_2x_bs2_8cls_PGBRU'
-load_from = '/home/ubuntu/code/LowLight/mmdetexp/MaskRCNN600x400/PT_r50_fpn_bs4_8cls_UN_NI10-100_COCO_NoiseInv_LLPF_Prior_8cls40.8_12E/latest.pth' #coco Pretrain
+work_dir = './work_dir'
+load_from = None  # 需自备 COCO 噪声抑制预训练权重（论文附加实验，主表配置无需此文件）
 
 resume_from = None
 workflow = [('train', 1)]

@@ -1,4 +1,4 @@
-ROOT = '~/mmdetection/configs/'
+ROOT = '../mmdetection/configs/'
 _base_ = [
     ROOT + '/_base_/models/mask_rcnn_r50_fpn.py',
     ROOT + '/_base_/datasets/coco_instance.py',
@@ -9,7 +9,7 @@ _base_ = [
 
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = '/data3/chenlinwei/dataset/coco/'
+data_root = 'data/coco/'
 
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
@@ -59,27 +59,27 @@ test_lod_coco = dict(
     classes=('bicycle', 'car', 'motorbike', 'bus',
              'bottle', 'chair', 'diningtable', 'tvmonitor'),
     type='CocoDataset',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_png_test+1.json',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_png_traintest+1.json',
-    ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_JPG_test+1.json',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_JPG_traintest+1.json',
-    # img_prefix='/data3/chenlinwei/dataset/LOD/RAW_Dark/',
-    img_prefix='/data3/chenlinwei/dataset/LOD/RGB_Dark/',
+    # ann_file='data/LIS/lis_coco_png_test+1.json',
+    # ann_file='data/LIS/lis_coco_png_traintest+1.json',
+    ann_file='data/LIS/lis_coco_JPG_test+1.json',
+    # ann_file='data/LIS/lis_coco_JPG_traintest+1.json',
+    # img_prefix='data/LIS/RAW_Dark/',
+    img_prefix='data/LIS/RGB_Dark/',
     pipeline=test_pipeline)
 
 coco = dict(
     classes=('bicycle', 'chair', 'dining table', 'bottle', 'motorcycle', 'car', 'tv', 'bus'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/coco/annotations/instances_train2017.json',
-    # seg_prefix='/data3/chenlinwei/dataset/coco/stuffthingmaps/train2017/',
-    img_prefix='/data3/chenlinwei/dataset/coco/train2017/',
+    ann_file='data/coco/annotations/instances_train2017.json',
+    # seg_prefix='data/coco/stuffthingmaps/train2017/',
+    img_prefix='data/coco/train2017/',
     pipeline=train_pipeline)
 
 coco_val = dict(
     classes=('bicycle', 'chair', 'dining table', 'bottle', 'motorcycle', 'car', 'tv', 'bus'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/coco/annotations/instances_val2017.json',
-    img_prefix='/data3/chenlinwei/dataset/coco/val2017/',
+    ann_file='data/coco/annotations/instances_val2017.json',
+    img_prefix='data/coco/val2017/',
     pipeline=test_pipeline)
 
 BATCHSIZE = 8

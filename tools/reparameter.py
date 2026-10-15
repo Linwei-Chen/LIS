@@ -1,9 +1,14 @@
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
+"""将 SCB 的 LLPF 低通先验分支（softmax 加权的 3x3 depthwise 核）重参数化合并进
+相邻卷积（conv2 + learnable_conv1），得到推理零开销模型（论文 Sec. 推理加速）。
+
+用法: python tools/reparameter.py IN_CKPT OUT_CKPT
+"""
+import sys
+
 import torch
 
-model = torch.load('/home/ubuntu/code/LowLight/mmdetexp/MaskRCNN600x400/r50_fpn_bs4_8cls_RAW_Dark-RAW_Normal_NoiseInvPT_LLPFPrior_8cls40.8_12E/latest.pth')
-for k in model: 
-    print(k)
+model = torch.load(sys.argv[1], map_location='cpu')
     
 for k in model['state_dict']: 
     if '.conv2.' in k:
@@ -19,4 +24,4 @@ for k in model['state_dict']:
         except Exception:
             pass
 
-torch.save(model, '/home/ubuntu/code/LowLight/mmdetexp/MaskRCNN600x400/r50_fpn_bs4_8cls_RAW_Dark-RAW_Normal_NoiseInvPT_LLPFPrior_8cls40.8_12E/repara.pth')
+torch.save(model, sys.argv[2])

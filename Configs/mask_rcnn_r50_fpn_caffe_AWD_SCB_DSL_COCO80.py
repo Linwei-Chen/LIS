@@ -2,7 +2,7 @@
 
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = '/data3/chenlinwei/dataset/coco/'
+data_root = 'data/coco/'
 
 # use caffe img_norm
 img_norm_cfg = dict(
@@ -48,16 +48,16 @@ test_pipeline = [
 coco = dict(
     # classes=('bicycle', 'chair', 'dining table', 'bottle', 'motorcycle', 'car', 'tv', 'bus'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/coco/annotations/instances_train2017.json',
-    # seg_prefix='/data3/chenlinwei/dataset/coco/stuffthingmaps/train2017/',
-    img_prefix='/data3/chenlinwei/dataset/coco/train2017/',
+    ann_file='data/coco/annotations/instances_train2017.json',
+    # seg_prefix='data/coco/stuffthingmaps/train2017/',
+    img_prefix='data/coco/train2017/',
     pipeline=train_pipeline)
 
 coco_val = dict(
     # classes=('bicycle', 'chair', 'dining table', 'bottle', 'motorcycle', 'car', 'tv', 'bus'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/coco/annotations/instances_val2017.json',
-    img_prefix='/data3/chenlinwei/dataset/coco/val2017/',
+    ann_file='data/coco/annotations/instances_val2017.json',
+    img_prefix='data/coco/val2017/',
     pipeline=test_pipeline)
 
 BATCHSIZE = 2

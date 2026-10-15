@@ -92,11 +92,8 @@ class NoiseModel:
 
         self.camera = camera
         if param_dir is None:
-            try:
-                self.param_dir = '~/code/mmdetection/mmdet/datasets/pipelines/noisemodel/camera_params'
-            except:
-                print('please specify the location of camera parameters, e.g., ~/code/mmdetection/mmdet/datasets/pipelines/noisemodel/camera_params')
-                raise Exception
+            # 默认取本文件同目录的 camera_params/（随仓库分发）
+            self.param_dir = osp.join(osp.dirname(osp.abspath(__file__)), 'camera_params')
         else:
             self.param_dir = param_dir
 

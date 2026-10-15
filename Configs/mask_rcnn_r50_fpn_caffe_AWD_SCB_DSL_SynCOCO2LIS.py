@@ -2,8 +2,8 @@
 
 # dataset settings
 dataset_type = 'CocoDataset'
-# data_root = '/data3/chenlinwei/dataset/coco/'
-data_root = '/data3/chenlinwei/dataset/coco/'
+# data_root = 'data/coco/'
+data_root = 'data/coco/'
 
 # use caffe img_norm
 img_norm_cfg = dict(
@@ -55,27 +55,27 @@ test_lod_coco = dict(
     classes=('bicycle', 'car', 'motorbike', 'bus',
              'bottle', 'chair', 'diningtable', 'tvmonitor'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_png_test+1.json',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_png_traintest+1.json',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_JPG_test+1.json',
-    # ann_file='/data3/chenlinwei/dataset/LOD/lis_coco_JPG_traintest+1.json',
-    img_prefix='/data3/chenlinwei/dataset/LOD/RAW_Dark/',
-    # img_prefix='/data3/chenlinwei/dataset/LOD/RGB_Dark/',
+    ann_file='data/LIS/lis_coco_png_test+1.json',
+    # ann_file='data/LIS/lis_coco_png_traintest+1.json',
+    # ann_file='data/LIS/lis_coco_JPG_test+1.json',
+    # ann_file='data/LIS/lis_coco_JPG_traintest+1.json',
+    img_prefix='data/LIS/RAW_Dark/',
+    # img_prefix='data/LIS/RGB_Dark/',
     pipeline=test_pipeline)
 
 coco = dict(
     classes=('bicycle', 'chair', 'dining table', 'bottle', 'motorcycle', 'car', 'tv', 'bus'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/coco/annotations/instances_train2017.json',
-    # seg_prefix='/data3/chenlinwei/dataset/coco/stuffthingmaps/train2017/',
-    img_prefix='/data3/chenlinwei/dataset/coco/train2017/',
+    ann_file='data/coco/annotations/instances_train2017.json',
+    # seg_prefix='data/coco/stuffthingmaps/train2017/',
+    img_prefix='data/coco/train2017/',
     pipeline=train_pipeline)
 
 coco_val = dict(
     classes=('bicycle', 'chair', 'dining table', 'bottle', 'motorcycle', 'car', 'tv', 'bus'),
     type='CocoDataset',
-    ann_file='/data3/chenlinwei/dataset/coco/annotations/instances_val2017.json',
-    img_prefix='/data3/chenlinwei/dataset/coco/val2017/',
+    ann_file='data/coco/annotations/instances_val2017.json',
+    img_prefix='data/coco/val2017/',
     pipeline=test_pipeline)
 
 BATCHSIZE = 8
@@ -136,7 +136,7 @@ custom_hooks = [dict(type='NumClassCheckHook')]
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 work_dir = './work_dir'
-load_from = '/data3/chenlinwei/.cache/torch/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408_segm_mAP-0.37.pth'
+load_from = 'https://download.openmmlab.com/mmdetection/v2.0/mask_rcnn/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408_segm_mAP-0.37_20200511_132245-9b3527fa.pth'  # 官方 COCO 3x 预训练
 # from mmdetection
 
 resume_from = None
