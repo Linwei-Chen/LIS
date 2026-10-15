@@ -53,7 +53,7 @@ This repo is based on [MMDetection](https://github.com/open-mmlab/mmdetection) *
 conda create -n lis python=3.8 -y
 conda activate lis
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
-pip install mmcv-full==1.4.7 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html
+pip install mmcv-full==1.4.8 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html
 pip install pycocotools scipy matplotlib opencv-python rawpy exifread
 # Usage A runs against the bundled mmdetection/ fork directly;
 # for Usage B additionally: pip install mmdet==2.15.1

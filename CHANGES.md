@@ -14,6 +14,8 @@
 
 ### mmdetection fork w.r.t. stock v2.15.1 (unchanged logic, documented for transparency)
 
+- `mmdet/__init__.py`: mmcv compatibility range is `1.3.8 <= mmcv <= 1.4.8` (training originally used 1.4.0; 1.4.8 is the last release of the 1.4 line with prebuilt cu113/torch1.11 wheels, and is the recommended/re-evaluated version — API-stable within 1.4.x).
+
 - `models/backbones/resnet.py`: adds `SmoothPriorBottleneck` (SCB), `ResNetAdaD`, `ResNetAdaDSmoothPrior` (AWD); `ResNet.__init__` builds frozen stages with stock `Bottleneck` and unfrozen stages with the configured custom block.
 - `models/backbones/convnext.py`: backports ConvNeXt from a later mmdet (absent in 2.15.1) and adds `ConvNeXtAdaD` / `ConvNeXtAdaDSmoothPrior`.
 - `models/backbones/CustomConv.py`: adds `AdaDConv` (adaptive weighted downsampling), `LLPFConv`, `GaussianBlurConv`, `LaplacianConv` prior filters.
