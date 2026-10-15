@@ -4,7 +4,6 @@ from tokenize import group
 import warnings
 from numpy.core.fromnumeric import size
 import torch
-from torch.functional import _index_tensor_with_indices_list
 import torch.nn as nn
 from torch.nn.modules.activation import Softmax
 import torch.utils.checkpoint as cp
