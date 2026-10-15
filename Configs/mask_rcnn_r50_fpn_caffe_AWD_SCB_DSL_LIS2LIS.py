@@ -51,8 +51,8 @@ lod_dark = dict(
              'motorbike', 'car', 'tvmonitor', 'bus'),
     # type='LODDataset', # for png
     type='CocoDataset',
-    # ann_file='data/LIS/lis_coco_png_train+1.json',
-    ann_file='data/LIS/lis_coco_png_train.json',
+    # ann_file='data/LIS/annotations/lis_coco_png_train+1.json',
+    ann_file='data/LIS/annotations/lis_coco_png_train.json',
     img_prefix='data/LIS/RAW_Normal_Gamma/',
     # img_format='png',
     pipeline=train_pipeline)
@@ -68,8 +68,8 @@ test_lod_coco = dict(
     classes=('bicycle', 'chair', 'diningtable', 'bottle',
              'motorbike', 'car', 'tvmonitor', 'bus'),
     type='CocoDataset',
-    ann_file='data/LIS/lis_coco_png_test+1.json',
-    # ann_file='data/LIS/lis_coco_png_raw_dark_testonly_challenge.json',  # 挑战赛版（类别为 COCO 顺序，需配套 classes）
+    ann_file='data/LIS/annotations/lis_coco_png_test+1.json',
+    # ann_file='data/LIS/annotations/lis_coco_png_raw_dark_testonly_challenge.json',  # 挑战赛版（类别为 COCO 顺序，需配套 classes）
     img_prefix='data/LIS/RAW_Dark/NoRatio/',
     pipeline=test_pipeline)
 
