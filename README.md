@@ -8,7 +8,7 @@ Interested readers are also referred to an insightful [Note](https://zhuanlan.zh
 
 ## News! 📰
 
-- **2026.10: Full open-source release.**
+- **2025-10: Full open-source release.**
   - 🤗 Dataset (four image types + annotations, CC BY 4.0): [Linwei-Chen/LIS](https://huggingface.co/datasets/Linwei-Chen/LIS)
   - 🤗 Model weights (verified checkpoints + configs): [Linwei-Chen/LIS-models](https://huggingface.co/Linwei-Chen/LIS-models)
   - 🔌 Plug-and-play single file [`lis_pluggable.py`](./lis_pluggable.py): `import` it and all custom modules register into stock `mmdet==2.15.1` — no source replacement needed.

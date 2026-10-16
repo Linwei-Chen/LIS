@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026.10 — Repository restructure & full open-source release
+## 2025-10 — Repository restructure & full open-source release
 
 ### Repo-level changes
 
