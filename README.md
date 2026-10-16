@@ -116,12 +116,11 @@ Download from 🤗 [Linwei-Chen/LIS](https://huggingface.co/datasets/Linwei-Chen
 ```
 data/
 ├── LIS/                              # ann file_name is './JPEGImages/N.png|N.JPG' relative to each group dir
-│   ├── RGB-normal/JPEGImages/        # odd ids, 1200×800 png (long-exposure sRGB)
-│   ├── RGB-dark/JPEGImages/          # even ids, png (short-exposure, rendered)
-│   ├── RAW-normal/JPEGImages/        # odd ids, png (RAW rendered to sRGB)
-│   ├── RAW-dark/JPEGImages/          # even ids, png (RAW rendered, no-ratio)
-│   ├── Camera-normal/JPEGImages/     # odd ids, camera original .JPG (normal light)
-│   ├── Camera-dark/JPEGImages/       # even ids, camera original .JPG (dark)
+│   ├── RGB_Normal/JPEGImages/        # odd ids, 1200×800 png (long-exposure sRGB)
+│   ├── RGB_Dark/JPEGImages/          # even ids, camera original .JPG (dark)
+│   ├── RAW_Normal/JPEGImages/        # odd ids, png (RAW rendered to sRGB)
+│   ├── RAW_Dark/JPEGImages/          # even ids, png (RAW rendered, no-ratio)
+│   ├── Camera_Normal/JPEGImages/     # odd ids, camera original .JPG (normal light)
 │   └── annotations/
 │       ├── lis_coco_png_train.json    # normal-light ids (1561)
 │       ├── lis_coco_png_test+1.json   # dark side ('+1' = dark ids), test (669)
@@ -131,6 +130,7 @@ data/
 ```
 
 - All configs use repo-relative data roots (`data/LIS/`, `data/coco/`) — run scripts from the repo root, or adjust `data_root`.
+- The HF dataset keeps the **original release naming** (`RGB_Normal/RGB_Dark/RAW_Normal/RAW_Dark`, identical content to the original drive release for `RGB_Normal`/`RAW_Dark`; `RGB_Dark`/`RAW_Normal` are the original release renditions). The added `Camera_Normal/` folder (normal-light camera original JPGs) completes the `lis_coco_JPG_*` (non-`+1`) annotations, which the original release shipped without images.
 - **Privacy note**: a small number of scenes (179 pairs — close-up parked cars with potentially readable license plates, plus a few screens kept out of caution) were **excluded** from the released images and annotations; the exact id list ships with the HF dataset card.
 - Revised annotations (LIS 1.1, see [issue #23](https://github.com/Linwei-Chen/LIS/issues/23#issue-2971196455)): [Baidu Drive](https://pan.baidu.com/s/1ZDXaeDYHPpcuJ0PR3yviKQ?pwd=IJCV) (code: IJCV).
 - Original camera sensor RAW (CR2) will be released at 🤗 [Linwei-Chen/LIS-raw](https://huggingface.co/Linwei-Chen/LIS-raw) after privacy screening.
