@@ -95,12 +95,13 @@ def postprocess_bayer(rawpath, img4c):
 
 
 # 修改输入文件夹路径，且命名数字符合dark = normal + 1 (eg: normal: 1.CR2, dark: 2.CR2)
-normal_input_folder = '/home/ubuntu/2TB/dataset/LOD/all_rename'
-dark_input_folder = '/home/ubuntu/2TB/dataset/LOD/all_rename'
+# !!! Edit the four paths below to your own CR2 folders before running !!!
+normal_input_folder = './CR2'   # folder holding all CR2 files (normal: odd ids)
+dark_input_folder = './CR2'     # same folder; dark counterpart = normal id + 1
 
 # normal和dark RGB保存路径
-normal_output_folder = '/home/ubuntu/2TB/dataset/LOD/New_RAW_Normal'
-dark_output_folder = '/home/ubuntu/2TB/dataset/LOD/New_RAW_Dark'
+normal_output_folder = './New_RAW_Normal'
+dark_output_folder = './New_RAW_Dark'
 
 if not osp.exists(normal_output_folder):
     os.mkdir(normal_output_folder)

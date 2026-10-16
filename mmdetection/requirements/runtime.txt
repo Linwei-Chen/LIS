@@ -1,5 +1,5 @@
 matplotlib
-numpy
+numpy<1.24
 pycocotools; platform_system == "Linux"
 pycocotools-windows; platform_system == "Windows"
 six

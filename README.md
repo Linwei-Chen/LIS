@@ -8,7 +8,7 @@ Interested readers are also referred to an insightful [Note](https://zhuanlan.zh
 
 ## News! 📰
 
-- **2025.10: Full open-source release.**
+- **2026.10: Full open-source release.**
   - 🤗 Dataset (four image types + annotations, CC BY 4.0): [Linwei-Chen/LIS](https://huggingface.co/datasets/Linwei-Chen/LIS)
   - 🤗 Model weights (verified checkpoints + configs): [Linwei-Chen/LIS-models](https://huggingface.co/Linwei-Chen/LIS-models)
   - 🔌 Plug-and-play single file [`lis_pluggable.py`](./lis_pluggable.py): `import` it and all custom modules register into stock `mmdet==2.15.1` — no source replacement needed.
@@ -30,7 +30,7 @@ git clone https://github.com/Linwei-Chen/LIS && cd LIS
 conda create -n lis python=3.8 -y && conda activate lis
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
 pip install mmcv-full==1.4.8 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html
-pip install pycocotools scipy matplotlib opencv-python rawpy exifread
+pip install "numpy<1.24" pycocotools scipy matplotlib opencv-python rawpy exifread
 cd mmdetection && pip install -e . && cd ..   # register the bundled fork as `mmdet`
 ```
 
@@ -57,9 +57,11 @@ Expected on the released (privacy-filtered) test set: **segm mAP 32.0 / bbox mAP
 **4. Try it on your own dark photo**
 
 ```bash
+# dark-scene scores are low — lower the display threshold, or the result may look empty
 python demo/image_demo.py <your_dark_image.jpg> \
     ../Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py \
-    ../checkpoints/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS=31.8.pth --device cuda:0
+    ../checkpoints/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS=31.8.pth \
+    --device cuda:0 --score-thr 0.05
 ```
 
 Prefer stock `mmdet==2.15.1` over the bundled fork? Jump to [Usage B](#usage-b--plug-and-play-single-file) — one `import lis_pluggable` registers every custom module.
@@ -97,14 +99,14 @@ Four image types (long-exposure normal-light and short-exposure low-light images
 
 ## Installation
 
-This repo is based on [MMDetection](https://github.com/open-mmlab/mmdetection) **v2.15.1**.
+This repo is based on [MMDetection](https://github.com/open-mmlab/mmdetection) **v2.15.1** (Linux + NVIDIA GPU; the cu113 wheels below do not cover macOS/Apple Silicon or newer GPU architectures).
 
 ```bash
 conda create -n lis python=3.8 -y
 conda activate lis
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
 pip install mmcv-full==1.4.8 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html
-pip install pycocotools scipy matplotlib opencv-python rawpy exifread
+pip install "numpy<1.24" pycocotools scipy matplotlib opencv-python rawpy exifread
 cd mmdetection && pip install -e . && cd ..   # Usage A: register the bundled fork as `mmdet` (editable, no compilation)
 # Usage B (alternative): skip the line above and instead pip install mmdet==2.15.1 (stock);
 # the two are mutually exclusive within one env — use separate envs if you need both.
@@ -154,7 +156,7 @@ result = inference_detector(model, 'your_dark_image.jpg')
 model.show_result('your_dark_image.jpg', result, out_file='result.jpg')
 ```
 
-`lis_pluggable.py` covers the core method line (R50 / ConvNeXt backbones, `MaskRCNNNoiseInv`, noise synthesis; camera noise parameters in [`camera_params/`](./camera_params)). PointRend / Mask2Former variants require the full fork (Usage A).
+`lis_pluggable.py` covers the core method line (R50 / ConvNeXt backbones, `MaskRCNNNoiseInv`, noise synthesis; camera noise parameters in [`camera_params/`](./camera_params)). PointRend / Mask2Former variants and the LIS2LIS training config (`LoadDarkPair` / CARAFE FPN) require the full fork (Usage A).
 
 ### Reparameterization (zero-overhead inference)
 
@@ -180,8 +182,8 @@ data/
 │   ├── RAW_Normal/JPEGImages/        # odd ids, png (RAW rendered to sRGB)
 │   ├── RAW_Dark/JPEGImages/          # even ids, png (RAW rendered, no-ratio)
 │   └── annotations/
-│       ├── lis_coco_png_train.json    # normal-light ids (1561)
-│       ├── lis_coco_png_test+1.json   # dark side ('+1' = dark ids), test (669)
+│       ├── lis_coco_png_train.json    # normal-light ids, train (1,447 images / 6,999 instances)
+│       ├── lis_coco_png_test+1.json   # dark side ('+1' = dark ids), test (604 images / 2,680 instances)
 │       ├── lis_coco_png_traintest+1.json
 │       └── ...                        # png/JPG series, coco.json variants, sub-ratio subsets
 └── coco/                              # COCO 2017 train/val (only for training configs)
@@ -208,6 +210,8 @@ Weights are hosted at 🤗 [Linwei-Chen/LIS-models](https://huggingface.co/Linwe
 | PointRend (Ours)   | R50        | Syn COCO  | **32.8** | **37.1** | [config](./Configs/pointrend_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py) | [HF](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/pointrend_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS%3D32.8.pth) |
 | Mask2Former        | R50        | COCO      | 21.4     | 22.9     | [config](./Configs/mask2former_r50_COCO2LIS.py) | [HF](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/mask2former_r50_SynCOCO2LIS%3D21.4.pth) |
 | Mask2Former (Ours) | R50        | Syn COCO  | **35.6** | **37.8** | [config](./Configs/mask2former_r50_caffe_AWD_SCB_DSL_SynCOCO2LIS.py) | [HF](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/mask2former_r50_AWD_SCB_DSL_SynCOCO2LIS%3D37.8.pth) |
+
+Seg AP / Box AP are the paper numbers. One re-evaluated checkpoint differs slightly from its paper value: Mask2Former (Ours) re-evaluates to segm 35.5 (pycocotools version float; the ckpt filename embeds the box AP 37.8, which matches exactly). Baseline Mask2Former ckpt filename follows the training-tag convention (`SynCOCO2LIS=21.4`) though it is the COCO-trained baseline.
 
 We do not tune hyperparameters like loss weights. Further adjusting the hyperparameters should lead to improvement.
 

@@ -5,7 +5,7 @@ lis_pluggable.py — LIS《Instance Segmentation in the Dark》(IJCV 2023) 即�
 
 import 本文件即可把论文全部自定义组件注册进 mmdet 2.15.1，无需替换任何 mmdet 源码：
 
-    pip install mmdet==2.15.1 mmcv-full==1.4.7   # torch 1.8~1.12 + cudatoolkit 对应版本
+    pip install mmdet==2.15.1 mmcv-full==1.4.8   # torch 1.8~1.12 + cudatoolkit 对应版本
     python -c "import lis_pluggable"             # 冒烟测试
 
 之后正常使用 Configs/ 下的训练/测试配置（详见 README）。
@@ -15,7 +15,7 @@ import 本文件即可把论文全部自定义组件注册进 mmdet 2.15.1，无
              ConvNeXtAdaD / ConvNeXtAdaDSmoothPrior — 同上，ConvNeXt 变体（mmdet 2.15.1 官方无 ConvNeXt，随本文件内置）
   NECKS      FPN（覆盖注册）                        — forward 额外支持 return_backbone（DSL 训练需要）
   DETECTORS  MaskRCNNNoiseInv                       — DSL（disturbance suppression learning）：clean/noisy 双前向 + 特征一致性
-  TRANSFORMS AddNoisyImg / NoiseModel / HistMatch   — RAW 低光噪声合成管线（PGRU 相机噪声模型）
+  TRANSFORMS AddNoisyImg / NoiseModel                   — RAW 低光噪声合成管线（PGRU 相机噪声模型）
 
 说明：
   * 相机噪声参数位于本文件同目录的 camera_params/（CanonEOS5D4）。
@@ -1933,7 +1933,7 @@ __all__ = [
     'ConvNeXt', 'ConvNeXtAdaD', 'ConvNeXtAdaDSmoothPrior',
     'BasicBlock', 'SmoothPriorBottleneck', '_ResNetSmoothBase', 'ResNetAdaD',
     'ResNetAdaDSmoothPrior', 'FPNSmooth', 'MaskRCNNNoiseInv',
-    'NoiseModel', 'AddNoisyImg', 'hist_match',
+    'NoiseModel', 'AddNoisyImg',
 ]
 
 if __name__ == '__main__':

@@ -3,6 +3,9 @@
 # challenge-only data variant and is NOT part of the HF release; prepare it
 # separately (gamma transform of RAW_Normal) to retrain. Eval uses the
 # standard release layout (data/LIS/RAW_Dark + lis_coco_png_test+1.json).
+# LoadDarkPair below reads normal-light images (odd ids, from RAW_Normal/) and
+# pairs them with dark = normal id + 1, so training needs the normal side of
+# RAW pngs as well — see LoadDarkPair in the fork's dark_noising.py.
 
 # use caffe img_norm
 img_norm_cfg = dict(
@@ -13,7 +16,7 @@ img_norm_cfg = dict(
 
 train_pipeline = [
     dict(type='LoadImageFromFile', to_float32=False),
-    dict(type='LoadDarkPair', img_dir='data/LIS/RAW_Dark/NoRatio/', ext='png'), # set RAW Dark path
+    dict(type='LoadDarkPair', img_dir='data/LIS/RAW_Dark/', ext='png'), # set RAW Dark path (the released RAW_Dark/ is already the NoRatio variant)
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
     dict(type='Resize', img_scale=(600, 400), keep_ratio=True, interpolate_mode='nearest'),
     dict(type='RandomFlip', flip_ratio=0.5),
