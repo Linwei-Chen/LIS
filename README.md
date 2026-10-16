@@ -141,7 +141,7 @@ Weights are hosted at 🤗 [Linwei-Chen/LIS-models](https://huggingface.co/Linwe
 
 | Model              | Backbone   | Train set | Seg AP   | Box AP   | Config | CKPT |
 | ------------------ | ---------- | --------- | -------- | -------- | ------ | ---- |
-| Mask R-CNN         | R50        | COCO      | 19.8     | 22.8     | [config](./Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_COCO80.py) | [HF](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/mask_rcnn_r50_fpn_COCO8%3D19.8.pth) |
+| Mask R-CNN         | R50        | COCO      | 19.8     | 22.8     | [config](./Configs/mask_rcnn_r50_fpn_caffe_COCO2LIS.py) | [HF](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/mask_rcnn_r50_fpn_COCO8%3D19.8.pth) |
 | Mask R-CNN (Ours)  | R50        | Syn COCO  | **31.8** | **37.6** | [config](./Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py) | [HF](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS%3D31.8.pth) |
 | Mask R-CNN         | ConvNeXt-T | COCO      | 23.7     | 27.9     | [config](./Configs/mask_rcnn_convnext-t_p4_w7_fpn_COCO2LIS.py) | [HF](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/mask_rcnn_convnext-t_p4_w7_fpn_COCO2LIS%3D23.7.pth) |
 | Mask R-CNN (Ours)  | ConvNeXt-T | Syn COCO  | **36.8** | **42.7** | [config](./Configs/mask_rcnn_convnext-t_p4_w7_fpn_AWD_SCB_DSL_SynCOCO2LIS.py) | [HF](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/mask_rcnn_convnext-t_p4_w7_fpn_AWD_SCB_DSL_SynCOCO2LIS%3D36.8.pth) |
@@ -158,6 +158,8 @@ On normal-light COCO val set (AWD/SCB/DSL also help in daylight):
 | ---------------------- | -------- | ----- | ------ | ------ |
 | Mask R-CNN             | R50      | COCO  | 34.4   | 38.0   |
 | Mask R-CNN+AWD+SCB+DSL | R50      | COCO  | **36.1** | **39.5** |
+
+The Ours row above corresponds to [config](./Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_COCO80.py) and [ckpt](https://huggingface.co/Linwei-Chen/LIS-models/blob/main/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_COCO80_1x_COCO%3D36.1.pth) (re-evaluated, matches the paper).
 
 For future research, we suggest using COCO as train set and the **whole LIS** as test set (full results: Table 5 of the paper).
 
