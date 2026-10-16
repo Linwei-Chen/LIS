@@ -120,7 +120,6 @@ data/
 │   ├── RGB_Dark/JPEGImages/          # even ids, camera original .JPG (dark)
 │   ├── RAW_Normal/JPEGImages/        # odd ids, png (RAW rendered to sRGB)
 │   ├── RAW_Dark/JPEGImages/          # even ids, png (RAW rendered, no-ratio)
-│   ├── Camera_Normal/JPEGImages/     # odd ids, camera original .JPG (normal light)
 │   └── annotations/
 │       ├── lis_coco_png_train.json    # normal-light ids (1561)
 │       ├── lis_coco_png_test+1.json   # dark side ('+1' = dark ids), test (669)
@@ -131,7 +130,7 @@ data/
 
 - **Category mapping**: the `lis_coco_*` annotations use 0-based category ids in the fixed order `bicycle, chair, diningtable, bottle, motorbike, car, tvmonitor, bus`; the early-draft `coco.json`/`coco+1.json` use a different (1-based, differently ordered) mapping — do not mix them.
 - All configs use repo-relative data roots (`data/LIS/`, `data/coco/`) — run scripts from the repo root, or adjust `data_root`.
-- The HF dataset keeps the **original release naming** (`RGB_Normal/RGB_Dark/RAW_Normal/RAW_Dark`, identical content to the original drive release for `RGB_Normal`/`RAW_Dark`; `RGB_Dark`/`RAW_Normal` are the original release renditions). The added `Camera_Normal/` folder (normal-light camera original JPGs) completes the `lis_coco_JPG_*` (non-`+1`) annotations, which the original release shipped without images.
+- The HF dataset keeps the **original release naming** (`RGB_Normal/RGB_Dark/RAW_Normal/RAW_Dark`, identical content to the original drive release for `RGB_Normal`/`RAW_Dark`; `RGB_Dark`/`RAW_Normal` are the original release renditions). The non-`+1` `lis_coco_JPG_*` annotations are kept as in the original release (shipped without their images).
 - **Privacy note**: a small number of scenes (179 pairs — close-up parked cars with potentially readable license plates, plus a few screens kept out of caution) were **excluded** from the released images and annotations; the exact id list ships with the HF dataset card.
 - Revised annotations (LIS 1.1, see [issue #23](https://github.com/Linwei-Chen/LIS/issues/23#issue-2971196455)): [Baidu Drive](https://pan.baidu.com/s/1ZDXaeDYHPpcuJ0PR3yviKQ?pwd=IJCV) (code: IJCV).
 - Original camera sensor RAW (CR2) will be released at 🤗 [Linwei-Chen/LIS-raw](https://huggingface.co/Linwei-Chen/LIS-raw) after privacy screening.
