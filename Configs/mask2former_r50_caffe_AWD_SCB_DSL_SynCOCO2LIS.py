@@ -80,8 +80,8 @@ test_pipeline = [
 ]
 
 test_lod_coco = dict(
-    # classes auto-read from ann_file categories (id-sorted); the original
-    # hardcoded tuple was in a different order and mislabeled per-class AP.
+    classes=('bicycle', 'car', 'motorbike', 'bus',
+             'bottle', 'chair', 'diningtable', 'tvmonitor'),
     type='CocoDataset',
     ann_file='data/LIS/annotations/lis_coco_png_test+1.json',
     # ann_file='data/LIS/annotations/lis_coco_png_traintest+1.json',
