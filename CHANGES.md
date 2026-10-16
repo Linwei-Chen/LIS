@@ -22,3 +22,15 @@
 - `models/necks/fpn.py`: `FPN.forward` gains an optional `return_backbone` output (needed by DSL feature-consistency loss); identical behavior when unset.
 - `models/detectors/mask_rcnn.py` / `point_rend.py` / `faster_rcnn_noise_inv.py`: adds `MaskRCNNNoiseInv` / `PointRendNoiseInv` / `FasterRCNNNoiseInv` — clean/noisy dual forward with clamped MSE feature consistency (DSL), plus `aux_modules.py`, `multiscale_discriminator.py`, `lsid.py` helpers.
 - `datasets/pipelines/noisemodel/dark_noising.py`: adds `LoadDarkPair` for paired RAW-dark / RAW-normal loading, alongside the noise-model transforms.
+
+## Label ordering note (do not "fix" the classes order)
+
+The `classes=` tuples in the LIS configs are ordered for the **label space the
+models were trained in**, not the json `categories` id order. mmdet resolves
+`cat_ids = coco.get_cat_ids(cat_names=self.CLASSES)` — a name->id lookup — so
+training, evaluation and per-class AP printing are all consistent with each
+other. Removing or re-sorting `classes` silently falls back to the 80-class
+COCO `CLASSES` and breaks the pipeline (names like `diningtable` do not match
+COCO's `dining table`). Verified by re-evaluation: checkpoint results match
+the paper with the original tuples. The early-draft `coco.json`/`coco+1.json`
+use a genuinely different id mapping and must not be mixed (see dataset card).
