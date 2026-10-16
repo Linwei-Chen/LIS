@@ -129,6 +129,7 @@ data/
 └── coco/                              # COCO 2017 train/val (only for training configs)
 ```
 
+- **Category mapping**: the `lis_coco_*` annotations use 0-based category ids in the fixed order `bicycle, chair, diningtable, bottle, motorbike, car, tvmonitor, bus`; the early-draft `coco.json`/`coco+1.json` use a different (1-based, differently ordered) mapping — do not mix them.
 - All configs use repo-relative data roots (`data/LIS/`, `data/coco/`) — run scripts from the repo root, or adjust `data_root`.
 - The HF dataset keeps the **original release naming** (`RGB_Normal/RGB_Dark/RAW_Normal/RAW_Dark`, identical content to the original drive release for `RGB_Normal`/`RAW_Dark`; `RGB_Dark`/`RAW_Normal` are the original release renditions). The added `Camera_Normal/` folder (normal-light camera original JPGs) completes the `lis_coco_JPG_*` (non-`+1`) annotations, which the original release shipped without images.
 - **Privacy note**: a small number of scenes (179 pairs — close-up parked cars with potentially readable license plates, plus a few screens kept out of caution) were **excluded** from the released images and annotations; the exact id list ships with the HF dataset card.
