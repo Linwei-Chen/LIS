@@ -1,3 +1,8 @@
+# LIS2LIS (CVPR2024 LIS challenge) config.
+# Note: `data/LIS/RAW_Normal_Gamma/` (gamma-adjusted RAW-normal renders) is a
+# challenge-only data variant and is NOT part of the HF release; prepare it
+# separately (gamma transform of RAW_Normal) to retrain. Eval uses the
+# standard release layout (data/LIS/RAW_Dark + lis_coco_png_test+1.json).
 
 # use caffe img_norm
 img_norm_cfg = dict(
@@ -70,7 +75,7 @@ test_lod_coco = dict(
     type='CocoDataset',
     ann_file='data/LIS/annotations/lis_coco_png_test+1.json',
     # ann_file='data/LIS/annotations/lis_coco_png_raw_dark_testonly_challenge.json',  # 挑战赛版（类别为 COCO 顺序，需配套 classes）
-    img_prefix='data/LIS/RAW_Dark/NoRatio/',
+    img_prefix='data/LIS/RAW_Dark/',
     pipeline=test_pipeline)
 
 BATCHSIZE = 1
