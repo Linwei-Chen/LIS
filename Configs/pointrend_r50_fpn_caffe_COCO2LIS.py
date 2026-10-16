@@ -1,6 +1,6 @@
 _base_ = './mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py'
 
-load_from = 'https://download.openmmlab.com/mmdetection/v2.0/point_rend/point_rend_r50_caffe_fpn_mstrain_3x_coco-64b527bd.pth'
+load_from = 'https://download.openmmlab.com/mmdetection/v2.0/point_rend/point_rend_r50_caffe_fpn_mstrain_3x_coco/point_rend_r50_caffe_fpn_mstrain_3x_coco-e0ebb6b7.pth'
 
 log_level = 'INFO'
 # use caffe img_norm
