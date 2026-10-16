@@ -262,4 +262,4 @@ We thank [MMDetection](https://github.com/open-mmlab/mmdetection) for the open-s
 
 ## Contact
 
-If you find any problem, please feel free to contact me (Linwei at chenlinwei@bit.edu.cn). A brief self-introduction (including your name, affiliation, and position) is required, if you would like to get in-depth help from me. I'd be glad to talk with you if more information (e.g. your personal website link) is attached.
+If you find any problem, please feel free to contact me (Linwei at chenlinwei.ai@gmail.com). A brief self-introduction (including your name, affiliation, and position) is required, if you would like to get in-depth help from me. I'd be glad to talk with you if more information (e.g. your personal website link) is attached.
