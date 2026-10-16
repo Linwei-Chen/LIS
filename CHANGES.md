@@ -35,3 +35,23 @@ COCO `CLASSES` and breaks the pipeline (names like `diningtable` do not match
 COCO's `dining table`). Verified by re-evaluation: checkpoint results match
 the paper with the original tuples. The early-draft `coco.json`/`coco+1.json`
 use a genuinely different id mapping and must not be mixed (see dataset card).
+
+## Category-name misalignment in the json `categories` blocks (2025-10 addendum)
+
+Instance-by-instance visual verification established the **true semantics** of
+the 0-based category ids across all `lis_coco_*` files:
+`0=bicycle, 1=car, 2=motorbike, 3=bus, 4=bottle, 5=chair, 6=diningtable, 7=tvmonitor`.
+The `categories/name` blocks inside the released jsons claim a different order
+(`0=bicycle, 1=chair, 2=diningtable, 3=bottle, 4=motorbike, 5=car, 6=tvmonitor,
+7=bus`) and are therefore **misaligned with the true semantics** — e.g. id-1
+instances are visually cars, not chairs. This also explains reports of
+"mislabeled" visualization overlays: rendering with the json name block prints
+wrong class names (the annotations themselves are correct).
+
+Nothing needs fixing for reproduction: mmdet binds ids to names via a name->id
+lookup, and the config `classes=` tuples already follow the true id order, so
+training, evaluation and all published numbers are self-consistent. The json
+name blocks are deliberately kept as released — renaming them would break
+compatibility with the published checkpoints. See the HF dataset card for the
+full explanation, per-class statistics, and example overlays rendered with
+true class names.
