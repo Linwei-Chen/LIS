@@ -14,6 +14,56 @@ Interested readers are also referred to an insightful [Note](https://zhuanlan.zh
   - 🔌 Plug-and-play single file [`lis_pluggable.py`](./lis_pluggable.py): `import` it and all custom modules register into stock `mmdet==2.15.1` — no source replacement needed.
 - **CVPR 2024 challenge: [Low-light Object Detection and Instance Segmentation Challenge](https://codalab.lisn.upsaclay.fr/competitions/17833)** — 4th International Workshop on Physics-Based Vision Meets Deep Learning (PBDL), CVPR 2024, Seattle.
 
+## Quick Start 🚀
+
+Five minutes to the paper's core model (Mask R-CNN + AWD/SCB/DSL, R50). Details: [Installation](#installation) · [Usage](#usage) · [Data Preparation](#data-preparation).
+
+**0. Clone**
+
+```bash
+git clone https://github.com/Linwei-Chen/LIS && cd LIS
+```
+
+**1. Environment** (~10 min)
+
+```bash
+conda create -n lis python=3.8 -y && conda activate lis
+pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install mmcv-full==1.4.8 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html
+pip install pycocotools scipy matplotlib opencv-python rawpy exifread
+cd mmdetection && pip install -e . && cd ..   # register the bundled fork as `mmdet`
+```
+
+**2. Data + checkpoint** — the HF dataset is already in the exact `data/LIS/` layout the configs expect; no rearrangement needed.
+
+```bash
+pip install -U huggingface_hub
+huggingface-cli download Linwei-Chen/LIS --repo-type dataset --local-dir data/LIS
+huggingface-cli download Linwei-Chen/LIS-models \
+    mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS=31.8.pth --local-dir checkpoints
+```
+
+**3. Evaluate** (from the repo root)
+
+```bash
+ln -sfn ../data mmdetection/data    # one-time: configs use repo-relative data paths
+cd mmdetection
+python tools/test.py ../Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py \
+    ../checkpoints/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS=31.8.pth --eval bbox segm
+```
+
+Expected on the released (privacy-filtered) test set: **segm mAP 32.0 / bbox mAP 37.5** (measured). The paper numbers 31.8 / 37.6 were measured on the full 669-image test set; the public release excludes 65 test scenes for privacy, so exact numbers differ slightly.
+
+**4. Try it on your own dark photo**
+
+```bash
+python demo/image_demo.py <your_dark_image.jpg> \
+    ../Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py \
+    ../checkpoints/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS=31.8.pth --device cuda:0
+```
+
+Prefer stock `mmdet==2.15.1` over the bundled fork? Jump to [Usage B](#usage-b--plug-and-play-single-file) — one `import lis_pluggable` registers every custom module.
+
 **Abstract**
 
 Existing instance segmentation methods are primarily designed for high-visibility inputs, and their performance degrades drastically in extremely low-light environments.
@@ -55,8 +105,9 @@ conda activate lis
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
 pip install mmcv-full==1.4.8 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html
 pip install pycocotools scipy matplotlib opencv-python rawpy exifread
-# Usage A runs against the bundled mmdetection/ fork directly;
-# for Usage B additionally: pip install mmdet==2.15.1
+cd mmdetection && pip install -e . && cd ..   # Usage A: register the bundled fork as `mmdet` (editable, no compilation)
+# Usage B (alternative): skip the line above and instead pip install mmdet==2.15.1 (stock);
+# the two are mutually exclusive within one env — use separate envs if you need both.
 ```
 
 ## Usage
@@ -68,9 +119,10 @@ The bundled [`mmdetection/`](./mmdetection) is our modified mmdet 2.15.1 — the
 ```bash
 ln -sfn ../data mmdetection/data   # one-time: configs use repo-relative data paths
 cd mmdetection
-# evaluate a released checkpoint against the paper numbers
+# evaluate a released checkpoint (paper: segm 31.8 / box 37.6 on the full 669-image test set;
+# the privacy-filtered release test set gives segm 32.0 / box 37.5)
 python tools/test.py ../Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py \
-    <ckpt.pth> --eval bbox segm
+    ../checkpoints/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS=31.8.pth --eval bbox segm
 # train
 python tools/train.py ../Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py
 ```
@@ -93,6 +145,13 @@ If you prefer a stock `pip install mmdet==2.15.1`, just `import lis_pluggable` b
 import lis_pluggable  # one line: registers AWD / SCB / DSL + noise pipeline into mmdet registries
 
 from mmdet.apis import init_detector, inference_detector  # then use mmdet as usual
+
+model = init_detector(
+    'Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py',   # released config works as-is
+    'checkpoints/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS=31.8.pth',
+    device='cuda:0')
+result = inference_detector(model, 'your_dark_image.jpg')
+model.show_result('your_dark_image.jpg', result, out_file='result.jpg')
 ```
 
 `lis_pluggable.py` covers the core method line (R50 / ConvNeXt backbones, `MaskRCNNNoiseInv`, noise synthesis; camera noise parameters in [`camera_params/`](./camera_params)). PointRend / Mask2Former variants require the full fork (Usage A).
