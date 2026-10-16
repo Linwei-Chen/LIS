@@ -66,6 +66,7 @@ pip install pycocotools scipy matplotlib opencv-python rawpy exifread
 The bundled [`mmdetection/`](./mmdetection) is our modified mmdet 2.15.1 — the authoritative implementation behind every number in the paper (incl. PointRend / Mask2Former variants). Run from the repo root:
 
 ```bash
+ln -sfn ../data mmdetection/data   # one-time: configs use repo-relative data paths
 cd mmdetection
 # evaluate a released checkpoint against the paper numbers
 python tools/test.py ../Configs/mask_rcnn_r50_fpn_caffe_AWD_SCB_DSL_SynCOCO2LIS.py \
@@ -114,11 +115,13 @@ Download from 🤗 [Linwei-Chen/LIS](https://huggingface.co/datasets/Linwei-Chen
 
 ```
 data/
-├── LIS/                              # ann file_name is './JPEGImages/N.png' relative to each group dir
+├── LIS/                              # ann file_name is './JPEGImages/N.png|N.JPG' relative to each group dir
 │   ├── RGB-normal/JPEGImages/        # odd ids, 1200×800 png (long-exposure sRGB)
 │   ├── RGB-dark/JPEGImages/          # even ids, png (short-exposure, rendered)
 │   ├── RAW-normal/JPEGImages/        # odd ids, png (RAW rendered to sRGB)
 │   ├── RAW-dark/JPEGImages/          # even ids, png (RAW rendered, no-ratio)
+│   ├── Camera-normal/JPEGImages/     # odd ids, camera original .JPG (normal light)
+│   ├── Camera-dark/JPEGImages/       # even ids, camera original .JPG (dark)
 │   └── annotations/
 │       ├── lis_coco_png_train.json    # normal-light ids (1561)
 │       ├── lis_coco_png_test+1.json   # dark side ('+1' = dark ids), test (669)
